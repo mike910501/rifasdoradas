@@ -1,0 +1,401 @@
+/* SECCIÓN ESTADÍSTICAS HORIZONTAL - RIFAS DORADAS */
+
+/* ESTRUCTURA PRINCIPAL */
+.stats-section {
+  background: radial-gradient(ellipse at center, 
+    rgba(80, 45, 120, 0.95) 0%, 
+    rgba(40, 20, 70, 0.98) 100%);
+  padding: 100px 0;
+  position: relative;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, 
+    rgba(147, 112, 219, 0.8), 
+    rgba(138, 43, 226, 0.8), 
+    rgba(147, 112, 219, 0.8)) 1;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 -2px 20px rgba(147, 112, 219, 0.5);
+  overflow: hidden;
+}
+
+/* PARTÍCULAS DE FONDO ESPECÍFICAS */
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><circle cx="100" cy="100" r="3" fill="rgba(147,112,219,0.4)"><animate attributeName="r" values="3;6;3" dur="3s" repeatCount="indefinite"/></circle><polygon points="200,50 220,90 180,90" fill="rgba(255,215,0,0.3)"><animateTransform attributeName="transform" type="rotate" values="0 200 70;360 200 70" dur="8s" repeatCount="indefinite"/></polygon><rect x="50" y="200" width="4" height="4" fill="rgba(138,43,226,0.5)"><animate attributeName="y" values="200;150;200" dur="4s" repeatCount="indefinite"/></rect><circle cx="250" cy="250" r="2" fill="rgba(255,215,0,0.4)"><animate attributeName="r" values="2;4;2" dur="2.5s" repeatCount="indefinite"/></circle></svg>');
+  animation: floatPattern 10s ease-in-out infinite;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes floatPattern {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-15px) scale(1.02); }
+}
+
+/* TÍTULO DE SECCIÓN */
+.stats-section .section-title {
+  text-align: center !important;
+  font-size: 3.5rem !important;
+  font-weight: 900 !important;
+  margin-bottom: 70px !important;
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 3px !important;
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+/* CONTENEDOR GRID HORIZONTAL */
+.stats-container {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 50px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+  position: relative;
+  z-index: 2;
+}
+
+/* TARJETAS DE ESTADÍSTICAS */
+.stat-card {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 2px solid rgba(147, 112, 219, 0.4) !important;
+  border-radius: 25px !important;
+  padding: 40px 30px !important;
+  text-align: center !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1) !important;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(147, 112, 219, 0.1) !important;
+}
+
+/* BRILLO DE FONDO PULSANTE */
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, 
+    rgba(147, 112, 219, 0.1) 0%, 
+    transparent 70%);
+  transform: translate(-50%, -50%);
+  animation: pulse 4s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: translate(-50%, -50%) scale(0.8); 
+  }
+  50% { 
+    opacity: 0.7; 
+    transform: translate(-50%, -50%) scale(1.2); 
+  }
+}
+
+/* ANIMACIONES DE ENTRADA POR TARJETA */
+.stat-card-1 {
+  animation: popIn 0.8s ease-out 0.3s both;
+}
+
+.stat-card-2 {
+  animation: popIn 0.8s ease-out 0.6s both;
+}
+
+.stat-card-3 {
+  animation: popIn 0.8s ease-out 0.9s both;
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) rotateY(-90deg);
+  }
+  50% {
+    transform: scale(1.1) rotateY(-45deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+  }
+}
+
+/* EFECTOS HOVER INTERACTIVOS */
+.stat-card:hover {
+  transform: translateY(-20px) scale(1.08) !important;
+  border-color: rgba(255, 215, 0, 0.8) !important;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(147, 112, 219, 0.6),
+    0 0 60px rgba(255, 215, 0, 0.3),
+    inset 0 0 20px rgba(255, 215, 0, 0.1) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.stat-card:hover .stat-icon {
+  animation: bounce 0.6s ease-in-out infinite !important;
+  transform: scale(1.1) !important;
+}
+
+.stat-card:hover .stat-number {
+  color: #FFD700 !important;
+  text-shadow: 0 0 25px rgba(255, 215, 0, 0.8) !important;
+  transform: scale(1.05) !important;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(10deg); }
+}
+
+/* ICONOS ANIMADOS */
+.stat-icon {
+  width: 80px !important;
+  height: 80px !important;
+  font-size: 40px !important;
+  background: linear-gradient(135deg, 
+    rgba(255, 215, 0, 0.9), 
+    rgba(255, 165, 0, 0.9)) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 25px auto !important;
+  color: #000 !important;
+  position: relative !important;
+  transition: all 0.4s ease !important;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5) !important;
+}
+
+.stat-icon::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #FFD700, #FF6B35, #8A2BE2);
+  z-index: -1;
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* NÚMEROS DE ESTADÍSTICAS */
+.stat-number {
+  font-size: 3.5rem !important;
+  font-weight: 900 !important;
+  background: linear-gradient(45deg, #FFD700, #FFA500, #FF6B35) !important;
+  background-size: 200% 200% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: 
+    gradientShift 3s ease-in-out infinite,
+    countUp 2s ease-out forwards !important;
+  margin-bottom: 15px !important;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.3) !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  z-index: 2;
+  text-align: center !important;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes countUp {
+  from { 
+    transform: scale(0) rotate(-180deg); 
+    opacity: 0;
+  }
+  to { 
+    transform: scale(1) rotate(0deg); 
+    opacity: 1;
+  }
+}
+
+/* ETIQUETAS DE ESTADÍSTICAS */
+.stat-label {
+  font-size: 1.3rem !important;
+  font-weight: 600 !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  margin-top: 10px !important;
+  position: relative !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+}
+
+.stat-label::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FFD700, transparent);
+  animation: underlineGlow 2s ease-in-out infinite;
+}
+
+@keyframes underlineGlow {
+  0%, 100% { 
+    opacity: 0.5; 
+    width: 30px; 
+  }
+  50% { 
+    opacity: 1; 
+    width: 70px; 
+  }
+}
+
+.stat-card:hover .stat-label {
+  color: rgba(255, 215, 0, 0.9) !important;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.4) !important;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1200px) {
+  .stats-container {
+    gap: 40px !important;
+  }
+  
+  .stat-card {
+    padding: 35px 25px !important;
+  }
+
+  .stats-section .section-title {
+    font-size: 3rem !important;
+    margin-bottom: 60px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 40px !important;
+  }
+  
+  .stat-card:last-child {
+    grid-column: 1 / -1 !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+  }
+
+  .stats-section {
+    padding: 80px 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-container {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+    padding: 0 15px !important;
+  }
+  
+  .stat-number {
+    font-size: 2.8rem !important;
+  }
+  
+  .stat-icon {
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 30px !important;
+  }
+
+  .stats-section {
+    padding: 70px 0 !important;
+  }
+
+  .stats-section .section-title {
+    font-size: 2.5rem !important;
+    margin-bottom: 50px !important;
+  }
+
+  .stat-label {
+    font-size: 1.1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-card {
+    padding: 30px 20px !important;
+  }
+
+  .stat-number {
+    font-size: 2.2rem !important;
+  }
+
+  .stats-section .section-title {
+    font-size: 2rem !important;
+    letter-spacing: 1px !important;
+  }
+}
+
+/* OVERRIDE PARA CENTRADO FORZADO */
+.stats-section,
+.stats-section *,
+.stats-container,
+.stats-container *,
+.stat-card,
+.stat-card * {
+  text-align: center !important;
+}
+
+/* ANIMACIÓN GLOBAL DE LA SECCIÓN */
+.stats-section {
+  animation: sectionSlideIn 1.2s ease-out;
+}
+
+@keyframes sectionSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* EFECTO ADICIONAL DE SHIMMER EN HOVER */
+.stat-card:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 215, 0, 0.1), 
+    transparent);
+  animation: shimmerEffect 1s ease-out;
+  z-index: 1;
+}
+
+@keyframes shimmerEffect {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}

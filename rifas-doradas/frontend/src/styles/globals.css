@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Bebas+Neue&family=Poppins:wght@400;600;700&display=swap');
+@import './animations.css';
+@import './casino.css';
+@import './premium-effects.css';
+@import './footer.css';
+@import './winners.css';
+@import './stats.css';
+@import './payment-support.css';
+@import './fortune-matrix.css';
+@import './payment-methods.css';
+@import './hero-section.css';
+@import './header-clean.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #FFD700;
+  --color-primary-light: #FFA500;
+  --color-secondary: #9f00ff;
+  --color-accent: #00ff41;
+  --color-danger: #ff0040;
+  --color-warning: #ff6600;
+  --color-info: #00bfff;
+  --color-bg-dark: #0a0a0a;
+  --color-bg-purple: #1a0033;
+  --color-bg-purple-light: #2d1b4e;
+  --glow-primary: 0 0 20px rgba(255, 215, 0, 0.6);
+  --glow-secondary: 0 0 20px rgba(159, 0, 255, 0.6);
+  --glow-accent: 0 0 20px rgba(0, 255, 65, 0.6);
+  --glow-danger: 0 0 20px rgba(255, 0, 64, 0.6);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Force text alignment */
+body, html {
+  text-align: center;
+}
+
+/* Ensure all major containers are centered */
+.container, [class*="container"] {
+  text-align: center;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Override any left alignments except footer */
+.text-left:not(.footer-column) {
+  text-align: center !important;
+}
+
+/* Footer columns should remain left aligned */
+.footer-column {
+  text-align: left !important;
+}
+
+.footer-column * {
+  text-align: left !important;
+}
+
+/* Grid and flexbox centering - except footer */
+.grid:not(.footer-grid), [class*="grid"]:not(.footer-grid) {
+  justify-items: center !important;
+}
+
+.flex:not(.footer-flex), [class*="flex"]:not(.footer-flex) {
+  justify-content: center !important;
+}
+
+/* Footer grid should use normal alignment */
+.footer-grid {
+  justify-items: stretch !important;
+}
+
+.footer-flex {
+  justify-content: flex-start !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-purple) 50%, var(--color-bg-purple-light) 100%);
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(159, 0, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 40% 20%, rgba(0, 191, 255, 0.06) 0%, transparent 60%),
+    radial-gradient(circle at 60% 60%, rgba(255, 20, 147, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  animation: backgroundShift 20s ease-in-out infinite;
+}
+
+@keyframes backgroundShift {
+  0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+  33% { filter: hue-rotate(30deg) brightness(1.1); }
+  66% { filter: hue-rotate(-30deg) brightness(0.9); }
+}
+
+.main-content {
+  position: relative;
+  z-index: 2;
+  min-height: calc(100vh - 80px);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.btn {
+  @apply px-8 py-3 rounded-lg font-bold text-lg uppercase tracking-wider transition-all duration-300 cursor-pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  color: var(--color-bg-dark);
+  box-shadow: var(--glow-primary);
+  border: 2px solid var(--color-primary);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.08) rotateZ(1deg);
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6),
+              0 8px 20px rgba(255, 165, 0, 0.4),
+              inset 0 0 20px rgba(255, 215, 0, 0.2),
+              var(--glow-primary);
+  filter: brightness(1.15) saturate(1.2);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, #7a00cc 100%);
+  color: white;
+  box-shadow: var(--glow-secondary);
+  border: 2px solid var(--color-secondary);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(159, 0, 255, 0.4), var(--glow-secondary);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #00cc33 100%);
+  color: var(--color-bg-dark);
+  box-shadow: var(--glow-accent);
+  border: 2px solid var(--color-accent);
+}
+
+.btn-accent:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 255, 65, 0.4), var(--glow-accent);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.neon-text {
+  text-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 40px currentColor;
+}
+
+.gradient-border {
+  position: relative;
+  background: linear-gradient(var(--color-bg-dark), var(--color-bg-dark)) padding-box,
+              linear-gradient(135deg, var(--color-primary), var(--color-secondary), var(--color-accent)) border-box;
+  border: 3px solid transparent;
+  border-radius: 16px;
+}
+
+input, textarea, select {
+  @apply w-full px-4 py-3 rounded-lg;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: white;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-secondary) 100%);
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, var(--color-bg-dark) 0%, var(--color-bg-purple) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader {
+  text-align: center;
+}
+
+.coin-spin {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 30px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  border-radius: 50%;
+  animation: coinSpin 1s linear infinite;
+  box-shadow: var(--glow-primary);
+}
+
+.loading-text {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.loading-bar {
+  width: 300px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.loading-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%);
+  animation: loadingProgress 1.5s ease-in-out infinite;
+}
+
+@keyframes coinSpin {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes loadingProgress {
+  0% { width: 0%; }
+  50% { width: 100%; }
+  100% { width: 0%; }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .main-content {
+    min-height: calc(100vh - 60px);
+  }
+  
+  h1, h2, h3 {
+    line-height: 1.2;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+  
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Font classes */
+.font-orbitron {
+  font-family: 'Orbitron', monospace !important;
+}
+
+.font-bebas {
+  font-family: 'Bebas Neue', cursive !important;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+/* Override default paragraph fonts */
+p, span, div {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Stats section improvements */
+.stats-section p {
+  font-family: 'Orbitron', monospace !important;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Winners section improvements */
+.winners-section p {
+  font-family: 'Orbitron', monospace !important;
+  font-weight: 500;
+}
+
+.winners-section .winner-spotlight h3 {
+  font-family: 'Bebas Neue', cursive !important;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}

@@ -1,0 +1,417 @@
+/* HEADER LIMPIO Y PROFESIONAL - RIFAS DORADAS */
+/* SIN ANIMACIONES MOLESTAS */
+
+/* ELIMINACIÓN TOTAL DE ANIMACIONES DEL HEADER */
+@keyframes none {
+  0% { transform: none; }
+  100% { transform: none; }
+}
+
+.header *,
+.header *::before,
+.header *::after {
+  animation-name: none !important;
+  animation-duration: 0s !important;
+  animation-iteration-count: 1 !important;
+  animation-fill-mode: forwards !important;
+}
+
+/* Eliminar transformaciones animadas */
+.header .spinning,
+.header .rotating,
+.header .bouncing,
+.header .floating,
+.header .roulette {
+  transform: none !important;
+  animation: none !important;
+}
+
+/* REMOVER ANIMACIONES ESPECÍFICAS DEL CASINO */
+.header-animations,
+.spinning-wheel,
+.rotating-element,
+.floating-icons,
+.bouncing-elements,
+.roulette-container .roulette {
+  display: none !important;
+  animation: none !important;
+}
+
+/* HEADER PRINCIPAL */
+.header {
+  background: rgba(20, 15, 45, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 2px solid rgba(255, 215, 0, 0.3) !important;
+  padding: 15px 0 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  transition: all 0.3s ease !important;
+  width: 100% !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.header.scrolled {
+  padding: 10px 0 !important;
+  background: rgba(20, 15, 45, 0.98) !important;
+}
+
+/* CONTENEDOR DEL HEADER */
+.header-container {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 40px !important;
+}
+
+/* LOGO SIMPLE Y LIMPIO */
+.logo {
+  font-size: 1.8rem !important;
+  font-weight: bold !important;
+  color: #FFD700 !important;
+  text-decoration: none !important;
+  letter-spacing: 1px !important;
+  transition: color 0.3s ease !important;
+  font-family: 'Bebas Neue', cursive !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.logo:hover {
+  color: #FFA500 !important;
+}
+
+.logo:focus {
+  outline: 2px solid rgba(255, 215, 0, 0.5) !important;
+  outline-offset: 2px !important;
+}
+
+/* Eliminar cualquier animación del logo */
+.logo *,
+.logo::before,
+.logo::after {
+  animation: none !important;
+  transform: none !important;
+}
+
+.logo-icon {
+  font-size: 1.5rem !important;
+  filter: none !important;
+}
+
+/* NAVEGACIÓN PRINCIPAL */
+.main-navigation {
+  display: flex !important;
+  gap: 40px !important;
+  align-items: center !important;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  padding: 10px 0 !important;
+  position: relative !important;
+  transition: color 0.3s ease !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.nav-link:hover {
+  color: #FFD700 !important;
+}
+
+.nav-link:focus {
+  outline: 2px solid rgba(255, 215, 0, 0.5) !important;
+  outline-offset: 2px !important;
+}
+
+.nav-link::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 2px !important;
+  background: #FFD700 !important;
+  transition: width 0.3s ease !important;
+}
+
+.nav-link:hover::after {
+  width: 100% !important;
+}
+
+.nav-link.active {
+  color: #FFD700 !important;
+}
+
+.nav-link.active::after {
+  width: 100% !important;
+}
+
+/* SECCIÓN DE AUTENTICACIÓN */
+.auth-section {
+  display: flex !important;
+  gap: 15px !important;
+  align-items: center !important;
+}
+
+/* BOTÓN DE LOGIN */
+.login-btn {
+  background: linear-gradient(135deg, #2563EB, #1D4ED8) !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px 25px !important;
+  border-radius: 25px !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-family: 'Poppins', sans-serif !important;
+  outline: none !important;
+}
+
+.login-btn:hover {
+  background: linear-gradient(135deg, #1D4ED8, #1E40AF) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3) !important;
+}
+
+.login-btn:focus {
+  outline: 2px solid rgba(37, 99, 235, 0.5) !important;
+  outline-offset: 2px !important;
+}
+
+.login-btn:active {
+  transform: translateY(0) !important;
+}
+
+/* BOTÓN DE REGISTRO */
+.register-btn {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 8px 20px !important;
+  border-radius: 25px !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  font-family: 'Poppins', sans-serif !important;
+  outline: none !important;
+}
+
+.register-btn:hover {
+  border-color: #FFD700 !important;
+  color: #FFD700 !important;
+  background: rgba(255, 215, 0, 0.1) !important;
+  transform: translateY(-1px) !important;
+}
+
+.register-btn:focus {
+  outline: 2px solid rgba(255, 215, 0, 0.5) !important;
+  outline-offset: 2px !important;
+}
+
+.register-btn:active {
+  transform: translateY(0) !important;
+}
+
+/* BOTÓN DEL MENÚ MÓVIL */
+.mobile-menu-toggle {
+  display: none !important;
+  background: none !important;
+  border: none !important;
+  color: white !important;
+  font-size: 1.5rem !important;
+  cursor: pointer !important;
+  padding: 5px !important;
+  border-radius: 5px !important;
+  transition: background 0.3s ease !important;
+}
+
+.mobile-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.mobile-menu-toggle:focus {
+  outline: 2px solid rgba(255, 215, 0, 0.5) !important;
+  outline-offset: 2px !important;
+}
+
+/* MENÚ MÓVIL */
+.mobile-navigation {
+  display: none !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: rgba(20, 15, 45, 0.98) !important;
+  backdrop-filter: blur(20px) !important;
+  border-top: 1px solid rgba(255, 215, 0, 0.3) !important;
+  padding: 20px 0 !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.mobile-navigation.active {
+  display: block !important;
+}
+
+.mobile-nav-links {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 15px !important;
+  padding: 0 40px !important;
+  margin-bottom: 20px !important;
+}
+
+.mobile-nav-links .nav-link {
+  padding: 15px 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  font-size: 1.1rem !important;
+}
+
+.mobile-auth-section {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  padding: 0 40px !important;
+}
+
+.mobile-auth-section .login-btn,
+.mobile-auth-section .register-btn {
+  width: 100% !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .header-container {
+    padding: 0 30px !important;
+  }
+  
+  .main-navigation {
+    gap: 30px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0 20px !important;
+  }
+  
+  .main-navigation {
+    display: none !important;
+  }
+  
+  .mobile-menu-toggle {
+    display: block !important;
+  }
+  
+  .auth-section {
+    display: none !important;
+  }
+  
+  .logo {
+    font-size: 1.6rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 12px 0 !important;
+  }
+  
+  .header-container {
+    padding: 0 15px !important;
+  }
+  
+  .logo {
+    font-size: 1.4rem !important;
+  }
+  
+  .mobile-nav-links,
+  .mobile-auth-section {
+    padding: 0 20px !important;
+  }
+}
+
+/* ESTADOS ESPECIALES */
+.header-transparent {
+  background: rgba(20, 15, 45, 0.8) !important;
+  border-bottom-color: rgba(255, 215, 0, 0.2) !important;
+}
+
+.header-solid {
+  background: rgba(20, 15, 45, 1) !important;
+  border-bottom-color: rgba(255, 215, 0, 0.4) !important;
+}
+
+/* OVERRIDE PARA ELIMINAR CUALQUIER ANIMACIÓN RESTANTE */
+.header .roulette-container,
+.header .roulette,
+.header .spinning-element,
+.header .animated-logo,
+.header [class*="animate"],
+.header [class*="spin"],
+.header [class*="rotate"],
+.header [class*="bounce"],
+.header [class*="float"] {
+  display: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+/* DETENER TODAS LAS TRANSICIONES EN ELEMENTOS ANIMADOS */
+.header * {
+  animation-play-state: paused !important;
+}
+
+/* RESTABLECER TRANSICIONES NORMALES SOLO PARA ELEMENTOS INTERACTIVOS */
+.header .nav-link,
+.header .login-btn,
+.header .register-btn,
+.header .logo,
+.header .mobile-menu-toggle {
+  animation-play-state: running !important;
+}
+
+/* MEJORAS DE ACCESIBILIDAD */
+.header .nav-link:focus-visible,
+.header .login-btn:focus-visible,
+.header .register-btn:focus-visible,
+.header .logo:focus-visible,
+.header .mobile-menu-toggle:focus-visible {
+  outline: 2px solid rgba(255, 215, 0, 0.8) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3) !important;
+}
+
+/* SMOOTH SCROLL PARA NAVEGACIÓN */
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* ESPACIADO PARA CONTENIDO DEBAJO DEL HEADER FIJO */
+.main-content,
+.home-page {
+  margin-top: 80px !important;
+}
+
+@media (max-width: 768px) {
+  .main-content,
+  .home-page {
+    margin-top: 70px !important;
+  }
+}

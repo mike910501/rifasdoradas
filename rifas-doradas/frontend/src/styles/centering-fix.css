@@ -1,0 +1,94 @@
+/* EMERGENCY CENTERING FIXES */
+
+/* Force all content to be centered */
+.home-page {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+}
+
+/* Hero section centering */
+.hero-section {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+/* Number grid centering */
+.numbers-section {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.number-grid-container {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+.number-grid {
+  margin: 0 auto !important;
+  justify-self: center !important;
+  align-self: center !important;
+}
+
+/* Payment methods centering */
+.payment-methods-section {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Stats section centering */
+.stats-section {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Winners section centering */
+.winners-section {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Container overrides */
+.container {
+  margin: 0 auto !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Grid overrides */
+.grid {
+  justify-items: center !important;
+  place-items: center !important;
+}
+
+/* Motion div overrides */
+div[class*="motion"] {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+/* Titles centering */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}

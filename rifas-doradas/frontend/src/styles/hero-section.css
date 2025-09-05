@@ -1,0 +1,624 @@
+/* HERO SECTION HORIZONTAL - RIFAS DORADAS */
+/* DISEÑO ELEGANTE Y FUNCIONAL */
+
+/* CONTENEDOR PRINCIPAL */
+.hero-section {
+  background: linear-gradient(135deg, 
+    rgba(20, 15, 45, 0.95) 0%, 
+    rgba(35, 25, 70, 0.98) 100%);
+  padding: 100px 0 !important;
+  min-height: 70vh !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+/* PARTÍCULAS DE FONDO SUTILES */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><circle cx="100" cy="100" r="2" fill="rgba(255,215,0,0.2)"><animate attributeName="opacity" values="0.2;0.8;0.2" dur="4s" repeatCount="indefinite"/></circle><circle cx="400" cy="300" r="1.5" fill="rgba(255,107,53,0.3)"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="6s" repeatCount="indefinite"/></circle><circle cx="250" cy="450" r="1.8" fill="rgba(138,43,226,0.25)"><animate attributeName="opacity" values="0.25;0.6;0.25" dur="5s" repeatCount="indefinite"/></circle></svg>');
+  animation: backgroundFloat 8s ease-in-out infinite;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes backgroundFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* CONTAINER GRID HORIZONTAL */
+.hero-container {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 60px !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 40px !important;
+  align-items: center !important;
+  position: relative;
+  z-index: 2;
+}
+
+/* CONTENIDO TEXTUAL */
+.hero-content {
+  order: 1 !important;
+  text-align: left !important;
+}
+
+/* VISUAL DE LA IMAGEN */
+.hero-visual {
+  order: 2 !important;
+  position: relative !important;
+}
+
+/* TÍTULO PRINCIPAL */
+.hero-title {
+  font-size: 3.5rem !important;
+  font-weight: 900 !important;
+  line-height: 1.1 !important;
+  margin-bottom: 25px !important;
+  background: linear-gradient(45deg, #FFD700, #FF6B35, #8A2BE2) !important;
+  background-size: 200% 200% !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: gradientFlow 3s ease infinite !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  font-family: 'Bebas Neue', cursive !important;
+  text-align: left !important;
+}
+
+@keyframes gradientFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* SUBTÍTULO */
+.hero-subtitle {
+  font-size: 1.5rem !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin-bottom: 30px !important;
+  font-weight: 600 !important;
+  font-family: 'Poppins', sans-serif !important;
+  text-align: left !important;
+}
+
+/* DESCRIPCIÓN */
+.hero-description {
+  font-size: 1.2rem !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  line-height: 1.6 !important;
+  margin-bottom: 40px !important;
+  max-width: 500px !important;
+  font-family: 'Poppins', sans-serif !important;
+  text-align: left !important;
+}
+
+/* GRID DE INFORMACIÓN DEL PREMIO */
+.prize-info-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 20px !important;
+  margin-bottom: 40px !important;
+}
+
+.prize-card {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 2px solid rgba(255, 215, 0, 0.3) !important;
+  border-radius: 15px !important;
+  padding: 20px !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.prize-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 215, 0, 0.1), 
+    transparent);
+  transition: left 0.5s;
+}
+
+.prize-card:hover {
+  transform: translateY(-5px) !important;
+  border-color: rgba(255, 215, 0, 0.6) !important;
+  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2) !important;
+}
+
+.prize-card:hover::before {
+  left: 100%;
+}
+
+.prize-label {
+  font-size: 0.9rem !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  margin-bottom: 8px !important;
+  font-family: 'Orbitron', monospace !important;
+  position: relative;
+  z-index: 2;
+}
+
+.prize-amount {
+  font-size: 1.4rem !important;
+  font-weight: bold !important;
+  color: #FFD700 !important;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5) !important;
+  font-family: 'Orbitron', monospace !important;
+  position: relative;
+  z-index: 2;
+}
+
+/* CONTENEDOR DEL CONTADOR */
+.countdown-container {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border-radius: 20px !important;
+  padding: 25px !important;
+  margin-bottom: 40px !important;
+  border: 1px solid rgba(255, 215, 0, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.countdown-title {
+  text-align: center !important;
+  color: #FFD700 !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 20px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  font-family: 'Orbitron', monospace !important;
+}
+
+.countdown-display {
+  display: flex !important;
+  justify-content: space-between !important;
+  gap: 15px !important;
+}
+
+.countdown-unit {
+  background: linear-gradient(135deg, #FFD700, #FFA500) !important;
+  color: #000 !important;
+  padding: 15px 10px !important;
+  border-radius: 12px !important;
+  text-align: center !important;
+  flex: 1 !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-unit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    rgba(255, 255, 255, 0.2), 
+    transparent 50%, 
+    rgba(255, 255, 255, 0.2));
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+.countdown-unit:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4) !important;
+}
+
+.countdown-number {
+  font-size: 1.8rem !important;
+  font-weight: bold !important;
+  display: block !important;
+  line-height: 1 !important;
+  font-family: 'Orbitron', monospace !important;
+  position: relative;
+  z-index: 2;
+}
+
+.countdown-label {
+  font-size: 0.8rem !important;
+  text-transform: uppercase !important;
+  font-weight: 600 !important;
+  margin-top: 5px !important;
+  font-family: 'Poppins', sans-serif !important;
+  position: relative;
+  z-index: 2;
+}
+
+/* BOTONES CTA */
+.hero-cta {
+  display: flex !important;
+  gap: 20px !important;
+  flex-wrap: wrap !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #FF6B35, #F7931E) !important;
+  color: white !important;
+  padding: 18px 40px !important;
+  border: none !important;
+  border-radius: 50px !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  cursor: pointer !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  font-family: 'Poppins', sans-serif !important;
+  outline: none !important;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.3), 
+    transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.05) !important;
+  box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4) !important;
+}
+
+.btn-primary:active {
+  transform: translateY(-1px) scale(1.02) !important;
+}
+
+.btn-secondary {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 16px 35px !important;
+  border-radius: 50px !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  font-family: 'Poppins', sans-serif !important;
+  outline: none !important;
+}
+
+.btn-secondary:hover {
+  border-color: #FFD700 !important;
+  color: #FFD700 !important;
+  background: rgba(255, 215, 0, 0.1) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2) !important;
+}
+
+/* CONTENEDOR DE IMAGEN */
+.hero-image-container {
+  position: relative !important;
+  border-radius: 25px !important;
+  overflow: hidden !important;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(255, 215, 0, 0.3) !important;
+  transition: all 0.4s ease !important;
+}
+
+.hero-image-container:hover {
+  transform: scale(1.02) !important;
+  box-shadow: 
+    0 35px 70px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(255, 215, 0, 0.5) !important;
+}
+
+.hero-image {
+  width: 100% !important;
+  height: 500px !important;
+  object-fit: cover !important;
+  border-radius: 25px !important;
+  transition: all 0.4s ease !important;
+}
+
+.hero-image-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(45deg, 
+    rgba(255, 215, 0, 0.1) 0%, 
+    rgba(255, 107, 53, 0.1) 50%, 
+    rgba(138, 43, 226, 0.1) 100%) !important;
+  border-radius: 25px !important;
+  animation: overlayShimmer 4s ease-in-out infinite !important;
+  pointer-events: none;
+}
+
+@keyframes overlayShimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    text-align: center !important;
+  }
+  
+  .hero-content {
+    order: 2 !important;
+  }
+  
+  .hero-visual {
+    order: 1 !important;
+  }
+  
+  .hero-title {
+    font-size: 2.8rem !important;
+    text-align: center !important;
+  }
+  
+  .hero-subtitle,
+  .hero-description {
+    text-align: center !important;
+  }
+  
+  .hero-description {
+    max-width: none !important;
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 0 !important;
+  }
+  
+  .hero-container {
+    padding: 0 20px !important;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem !important;
+    letter-spacing: 1px !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem !important;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem !important;
+  }
+  
+  .hero-image {
+    height: 350px !important;
+  }
+  
+  .prize-info-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .countdown-display {
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+  
+  .countdown-unit {
+    flex: 1 1 calc(50% - 10px) !important;
+  }
+  
+  .hero-cta {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100% !important;
+    max-width: 300px !important;
+  }
+}
+
+/* Micro móviles */
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 40px 0 !important;
+  }
+  
+  .hero-container {
+    padding: 0 15px !important;
+    gap: 30px !important;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem !important;
+  }
+  
+  .hero-description {
+    font-size: 1rem !important;
+  }
+  
+  .hero-image {
+    height: 280px !important;
+  }
+  
+  .prize-card {
+    padding: 15px !important;
+  }
+  
+  .prize-amount {
+    font-size: 1.2rem !important;
+  }
+  
+  .countdown-container {
+    padding: 20px !important;
+  }
+  
+  .countdown-unit {
+    padding: 12px 8px !important;
+  }
+  
+  .countdown-number {
+    font-size: 1.5rem !important;
+  }
+  
+  .countdown-label {
+    font-size: 0.7rem !important;
+  }
+  
+  .btn-primary {
+    padding: 15px 30px !important;
+    font-size: 1.1rem !important;
+  }
+  
+  .btn-secondary {
+    padding: 13px 28px !important;
+    font-size: 1rem !important;
+  }
+}
+
+/* OVERRIDE PARA CENTRADO ESPECÍFICO */
+.hero-section .hero-content h1,
+.hero-section .hero-content h2,
+.hero-section .hero-content p {
+  text-align: left !important;
+}
+
+@media (max-width: 1024px) {
+  .hero-section .hero-content h1,
+  .hero-section .hero-content h2,
+  .hero-section .hero-content p {
+    text-align: center !important;
+  }
+}
+
+/* ANIMACIONES DE ENTRADA */
+.hero-section {
+  animation: heroReveal 1.2s ease-out;
+}
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MEJORAS DE ACCESIBILIDAD */
+.btn-primary:focus,
+.btn-secondary:focus {
+  outline: 2px solid rgba(255, 215, 0, 0.5) !important;
+  outline-offset: 2px !important;
+}
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+  box-shadow: 
+    0 15px 35px rgba(255, 107, 53, 0.4),
+    0 0 0 4px rgba(255, 215, 0, 0.3) !important;
+}
+
+/* ESTADOS HOVER MEJORADOS PARA INTERACCIÓN */
+.prize-card,
+.countdown-unit {
+  cursor: pointer;
+}
+
+.prize-card:hover .prize-amount {
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.8) !important;
+  transform: scale(1.05);
+}
+
+.countdown-unit:hover .countdown-number {
+  color: #000;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* SMOOTH SCROLL PARA TODA LA PÁGINA */
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* EFECTOS ADICIONALES PARA BOTONES */
+.btn-primary,
+.btn-secondary {
+  position: relative;
+  overflow: hidden;
+  transform-origin: center;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* ANIMACIÓN DE PULSO PARA PRIZE CARDS */
+.prize-card:hover {
+  animation: gentlePulse 1.5s ease-in-out;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { 
+    transform: translateY(-5px); 
+  }
+  50% { 
+    transform: translateY(-8px) scale(1.02); 
+  }
+}

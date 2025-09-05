@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npm start)",
+      "Bash(taskkill:*)",
+      "Bash(npm run dev:*)",
+      "Bash(dir \"C:\\Users\\mikeh\\Documents\\RIFAS DORADAS\\rifas-doradas\\frontend\\public\\images\")",
+      "Bash(ren:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -1,0 +1,392 @@
+/* SECCIÓN GANADORES HORIZONTAL - RIFAS DORADAS */
+
+/* ESTRUCTURA PRINCIPAL */
+.winners-section {
+  background: linear-gradient(135deg, 
+    rgba(45, 25, 70, 0.95) 0%, 
+    rgba(30, 15, 50, 0.98) 100%);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 3px solid;
+  border-image: linear-gradient(90deg, transparent, #FFD700, transparent) 1;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.5);
+}
+
+/* OVERLAY DE PARTÍCULAS FLOTANTES */
+.winners-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="50" cy="50" r="2" fill="rgba(255,215,0,0.3)"><animate attributeName="cy" values="50;150;50" dur="4s" repeatCount="indefinite"/></circle><circle cx="150" cy="100" r="1.5" fill="rgba(255,215,0,0.2)"><animate attributeName="cy" values="100;50;100" dur="6s" repeatCount="indefinite"/></circle><circle cx="30" cy="120" r="1.8" fill="rgba(255,215,0,0.25)"><animate attributeName="cy" values="120;80;120" dur="5s" repeatCount="indefinite"/></circle><circle cx="170" cy="160" r="1.3" fill="rgba(255,215,0,0.15)"><animate attributeName="cy" values="160;60;160" dur="7s" repeatCount="indefinite"/></circle></svg>');
+  animation: backgroundFloat 8s ease-in-out infinite;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes backgroundFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* TÍTULO DE SECCIÓN */
+.section-title {
+  text-align: center !important;
+  font-size: 3.5rem !important;
+  font-weight: 900 !important;
+  margin-bottom: 60px !important;
+  font-family: 'Bebas Neue', cursive !important;
+  letter-spacing: 3px !important;
+  position: relative;
+  z-index: 2;
+}
+
+/* CONTENEDOR HORIZONTAL */
+.winners-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  gap: 30px !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+  position: relative;
+  z-index: 2;
+}
+
+/* TARJETAS DE GANADORES */
+.winner-card {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 2px solid rgba(255, 215, 0, 0.3) !important;
+  border-radius: 20px !important;
+  padding: 35px 30px !important;
+  min-width: 350px !important;
+  max-width: 380px !important;
+  text-align: center !important;
+  position: relative !important;
+  overflow: hidden !important;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    inset 0 0 20px rgba(255, 215, 0, 0.05) !important;
+}
+
+/* EFECTO DE BRILLO CONTINUO */
+.winner-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 215, 0, 0.2), 
+    transparent);
+  animation: shimmer 3s infinite;
+  z-index: 1;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* ANIMACIONES DE ENTRADA ESPECÍFICAS */
+.winner-card-1 {
+  animation: slideInLeft 1s ease-out 0.2s both;
+}
+
+.winner-card-2 {
+  animation: slideInUp 1s ease-out 0.4s both;
+}
+
+.winner-card-3 {
+  animation: slideInRight 1s ease-out 0.6s both;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* EFECTOS HOVER ARMÓNICOS */
+.winner-card:hover {
+  transform: translateY(-15px) scale(1.05) !important;
+  border-color: rgba(255, 215, 0, 0.8) !important;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(255, 215, 0, 0.4),
+    0 0 50px rgba(255, 215, 0, 0.2),
+    inset 0 0 30px rgba(255, 215, 0, 0.1) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.winner-card:hover .winner-name {
+  color: #FFD700 !important;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.6) !important;
+  transform: scale(1.05) !important;
+}
+
+.winner-card:hover .winner-icon {
+  transform: scale(1.2) rotate(10deg) !important;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.8) !important;
+}
+
+/* ICONOGRAFÍA DE GANADORES */
+.winner-icon {
+  width: 70px !important;
+  height: 70px !important;
+  background: linear-gradient(45deg, #FFD700, #FFA500) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 25px auto !important;
+  font-size: 28px !important;
+  color: #000 !important;
+  animation: pulse 2s infinite !important;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5) !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+  }
+}
+
+/* TIPOGRAFÍA JERARQUIZADA */
+.winner-name {
+  font-size: 2rem !important;
+  font-weight: bold !important;
+  color: #FFD700 !important;
+  margin-bottom: 15px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  transition: all 0.3s ease !important;
+  text-align: center !important;
+  position: relative;
+  z-index: 2;
+}
+
+.winner-details {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+  margin-bottom: 8px !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  z-index: 2;
+}
+
+.winner-prize {
+  font-size: 1.4rem !important;
+  font-weight: bold !important;
+  color: #00FF7F !important;
+  text-shadow: 0 0 10px rgba(0, 255, 127, 0.5) !important;
+  margin-bottom: 10px !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  z-index: 2;
+}
+
+.winner-card:hover .winner-prize {
+  color: #00FF9F !important;
+  text-shadow: 0 0 15px rgba(0, 255, 159, 0.7) !important;
+  transform: scale(1.05) !important;
+}
+
+.winner-date {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 0.9rem !important;
+  margin-top: 10px !important;
+  text-align: center !important;
+  opacity: 0.8;
+  position: relative;
+  z-index: 2;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1200px) {
+  .winners-container {
+    gap: 20px !important;
+  }
+  
+  .winner-card {
+    min-width: 320px !important;
+    max-width: 350px !important;
+    padding: 30px 25px !important;
+  }
+
+  .section-title {
+    font-size: 3rem !important;
+    margin-bottom: 50px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .winners-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 25px !important;
+  }
+  
+  .winner-card {
+    min-width: 300px !important;
+    max-width: 400px !important;
+  }
+
+  .winners-section {
+    padding: 70px 0 !important;
+  }
+
+  /* Reajustar animaciones para móvil */
+  .winner-card-1,
+  .winner-card-2,
+  .winner-card-3 {
+    animation: slideInUp 1s ease-out both !important;
+  }
+
+  .winner-card-1 { animation-delay: 0.2s !important; }
+  .winner-card-2 { animation-delay: 0.4s !important; }
+  .winner-card-3 { animation-delay: 0.6s !important; }
+}
+
+@media (max-width: 768px) {
+  .winners-section {
+    padding: 60px 0 !important;
+  }
+  
+  .winners-container {
+    padding: 0 15px !important;
+  }
+  
+  .winner-card {
+    min-width: 280px !important;
+    padding: 25px 20px !important;
+  }
+  
+  .winner-name {
+    font-size: 1.5rem !important;
+  }
+
+  .section-title {
+    font-size: 2.5rem !important;
+    margin-bottom: 40px !important;
+  }
+
+  .winner-icon {
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 24px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .winner-prize {
+    font-size: 1.2rem !important;
+  }
+
+  .winner-details {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .winner-card {
+    min-width: 260px !important;
+    max-width: 280px !important;
+  }
+
+  .section-title {
+    font-size: 2rem !important;
+    letter-spacing: 1px !important;
+  }
+}
+
+/* OVERRIDE PARA CENTRADO FORZADO */
+.winners-section *,
+.winners-container,
+.winners-container *,
+.winner-card,
+.winner-card * {
+  text-align: center !important;
+}
+
+/* EFECTOS ADICIONALES PARA PROFUNDIDAD */
+.winner-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 60%, rgba(255, 215, 0, 0.05) 100%);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.winner-card:hover::after {
+  opacity: 1;
+}
+
+/* ANIMACIÓN GLOBAL DE LA SECCIÓN */
+.winners-section {
+  animation: sectionFadeIn 1.2s ease-out;
+}
+
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

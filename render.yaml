@@ -1,0 +1,52 @@
+version: "1"
+
+databases:
+  - name: rifas-doradas-db
+    databaseName: rifas_doradas
+    user: rifas_user
+    region: oregon
+
+services:
+  # Backend Web Service
+  - type: web
+    name: rifas-doradas-backend
+    env: node
+    region: oregon
+    buildCommand: cd rifas-doradas/backend && npm install
+    startCommand: cd rifas-doradas/backend && npm start
+    rootDir: rifas-doradas/backend
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3002
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: BCRYPT_ROUNDS
+        value: 12
+      - key: MAX_FILE_SIZE
+        value: 5242880
+      - key: UPLOAD_PATH
+        value: /tmp/uploads
+      - key: DATABASE_URL
+        fromDatabase:
+          name: rifas-doradas-db
+          property: connectionString
+
+  # Frontend Static Site
+  - type: static
+    name: rifas-doradas-frontend
+    env: static
+    region: oregon
+    buildCommand: cd rifas-doradas/frontend && npm install && npm run build
+    staticPublishPath: rifas-doradas/frontend/dist
+    rootDir: rifas-doradas/frontend
+    envVars:
+      - key: VITE_NODE_ENV
+        value: production
+      - key: VITE_APP_NAME
+        value: Rifas Doradas
+      - key: VITE_APP_VERSION
+        value: 1.0.0
